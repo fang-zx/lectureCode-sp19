@@ -6,6 +6,30 @@ public class IntList {
 		first = f;
 		rest = r;
 	}
+	
+	// code below was added by me 
+	public static IntList incrList(IntList L, int x) {
+		if (L != null) {
+			return new IntList(L.first+x, incrList(L.next, x));
+		}
+		return null;
+	}
+
+	public static void incrListNoRet(IntList L, int x) {
+		if (L != null) {
+			L.first += x;
+			incrListNoRet(L.rest, x)
+		}
+	}
+
+	public static IntList dincrList(IntList L, int x) {
+		IntList p = L;
+		while (p != null) {
+			p.first += x;
+		}
+		return L;
+	}
+	// code above was added by me 
 
 	/** Return the size of the list using... recursion! */
 	public int size() {
